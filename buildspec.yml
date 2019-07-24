@@ -1,0 +1,8 @@
+version: 0.2
+phases:
+  build:
+    commands:
+       - npm install install -g @vue/cli 
+       - cd src/frontend/bootstrapvue
+       - npm i vue bootstrap-vue bootstrap
+       - npm run build
