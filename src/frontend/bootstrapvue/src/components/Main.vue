@@ -3,9 +3,31 @@
 <b-row class="header">
    <b-col cols="7" class="title"><h1>Hyunwook Shin</h1></b-col>
    <b-col cols="3" class="links">
-      <b-btn class="githubButton" variant="primary">GitHub</b-btn>
+      <b-btn href="https://github.com/hyunwookshin/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
+<b-card no-body>
+   <b-tabs card>
+      <b-tab title="About me in 100 words" active>
+         <b-card-text>Time for me to introduce myself.</b-card-text>
+      </b-tab>
+      <b-tab title="Serverless Computing" active>
+         <b-card-text>Although intimidating at first, I began really like the serverless idea.</b-card-text>
+      </b-tab>
+      <b-tab title="Recent Reads">
+         <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
+      </b-tab>
+      <b-tab title="Cloud Articles">
+         <b-card-text>Here are some cloud articles bookmarked.</b-card-text>
+      </b-tab>
+      <b-tab title="Tweets Feed">
+         <b-card-text>Here are some videos bookmarked.</b-card-text>
+      </b-tab>
+      <b-tab title="Food Places">
+         <b-card-text>Here are some nice food places I have tried</b-card-text>
+      </b-tab>
+   </b-tabs>
+</b-card>
 <b-row class="footer">
    <b-col cols="12" class="footerInner">
       <p>Hyunwook Shin 2019</p>
