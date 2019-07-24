@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1563947643954",
+    "Statement": [
+        {
+            "Sid": "Stmt1563947641989",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::417681847926:role/service-role/hyunwookshinservice"
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::hyunwook",
+                "arn:aws:s3:::hyunwook/*"
+            ]
+        },
+        {
+            "Sid": "Stmt1563949126696",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::hyunwook/*"
+        }
+    ]
+}
