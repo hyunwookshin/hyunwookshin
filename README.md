@@ -32,6 +32,26 @@ as [lambda functions](https://aws.amazon.com/lambda/)
 
 Amazon Kinesis and kubernetes is used to read and parse incoming tweets.
 
+### Database
+
+AWS DynamoDB is used to store all post data defined as:
+
+```
+{
+   "title" : <string>,
+   "section" : <string>,
+   "content" : <string>,
+   "uploaded" : <date>,
+   "img_url" : <string>,
+   "external_url" : <string>,
+   "posted_by" : <string>
+}
+```
+
+**title** and **section** are partition and sort keys. The optional
+fields are **img_url** and **external_url**.
+Python boto3 will be used to access the Dynamo DB.
+
 ### Authentication
 
 The authentication and authorization is managed by AWS Cognito.
