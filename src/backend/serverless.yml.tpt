@@ -1,0 +1,35 @@
+service: api-endpoints
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: us-east-2
+  stage: stage
+  logRetentionInDays: 30
+  timeout: 30
+  environment:
+     REGION_NAME: 'us-east-2'
+     TABLE_NAME: 'hyunwookshin'
+  iamRoleStatements:
+     - Effect: Allow
+       Action:
+          - dynamodb:Query
+          - dynamodb:Scan
+          - dynamodb:GetItem
+          - dynamodb:PutItem
+          - dynamodb:UpdateItem
+          - dynamodb:DeleteItem
+          - kms:Decrypt
+       Resource:
+          - arn:aws:dynamodb:us-east-2:417681847926:table/hyunwookshin
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  about:
+    handler: handler.about
+    events:
+      - http:
+          path: /about
+          method: get

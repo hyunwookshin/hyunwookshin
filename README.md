@@ -28,6 +28,13 @@ The frontend is served directly from Amazon **S3 bucket** fronted by [AWS Cloudf
 The REST endpoints, implemented in Python, will be deployed using FaaS (function as a service) model
 as [lambda functions](https://aws.amazon.com/lambda/)
 
+To deploy the backend functions run
+
+```
+make config
+make backend
+```
+
 ### Backend (Stream)
 
 Amazon Kinesis and kubernetes is used to read and parse incoming tweets.
