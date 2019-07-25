@@ -21,7 +21,7 @@ make run
 
 The webpage is then accessible via `http://localhost/8080`
 
-The frontend is served directly from Amazon **S3 bucket** fronted by [AWS Cloudfront](https://aws.amazon.com/cloudfront/0) CDN.
+The frontend is served directly from Amazon **S3 bucket** fronted by [AWS Cloudfront](https://aws.amazon.com/cloudfront) CDN.
 
 ### Backend (REST)
 
