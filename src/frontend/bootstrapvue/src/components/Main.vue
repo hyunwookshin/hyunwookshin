@@ -101,9 +101,19 @@ export default {
          const pathAbout = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
          const pathServerless = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/serverless';
          const pathReadings = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/readings';
+         function compare(blob1, blob2) {
+            if (blob1.posted_date < blob2.posted_date) {
+               return -1;
+            }
+            if (blob1.posted_date > blob2.posted_date) {
+               return 1;
+            }
+            return 0;
+         }
          axios.get(pathAbout)
            .then((res) => {
-             this.blobs_about = res.data.Items;
+             var blobs = res.data.Items;
+             this.blobs_about = blobs.sort(compare);
            })
            .catch((error) => {
              // eslint-disable-next-line
@@ -111,7 +121,8 @@ export default {
            });
          axios.get(pathServerless)
            .then((res) => {
-             this.blobs_serverless = res.data.Items;
+             var blobs = res.data.Items;
+             this.blobs_serverless = blobs.sort(compare);
            })
            .catch((error) => {
              // eslint-disable-next-line
@@ -119,7 +130,8 @@ export default {
            });
          axios.get(pathReadings)
            .then((res) => {
-             this.blobs_readings= res.data.Items;
+             var blobs = res.data.Items;
+             this.blobs_readings = blobs.sort(compare);
            })
            .catch((error) => {
              // eslint-disable-next-line

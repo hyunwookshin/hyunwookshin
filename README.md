@@ -54,12 +54,15 @@ AWS DynamoDB is used to store all post data defined as:
    "content" : <string>,
    "img_url" : <string>,
    "external_url" : <string>,
-   "posted_by" : <string>
+   "posted_by" : <string>,
+   "posted_date" : <string>
 }
 ```
 
+The format for **posted_date** is "YYYY-MM-DD".
+
 **title** and **section** are partition and sort keys. The optional
-fields are **img_url** and **external_url**.
+fields are **img_url** and **external_url**. Rest are required.
 Python boto3 will be used to access the Dynamo DB.
 
 ### Authentication
