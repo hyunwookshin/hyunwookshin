@@ -8,8 +8,8 @@
 </b-row>
 <b-card no-body>
    <b-tabs card>
-      <b-tab title="About me in 100 words" active>
-         <b-card-text>Time for me to introduce myself.</b-card-text>
+      <b-tab title="About" active>
+         <b-card-text>Introducing myself 👋 </b-card-text>
          <b-card
            v-for="blob in blobs"
            :title="blob.title"
@@ -25,7 +25,7 @@
         </b-card>
       </b-tab>
       <b-tab title="Serverless Computing">
-         <b-card-text>Although intimidating at first, I began really like the serverless idea.</b-card-text>
+         <b-card-text>So what exactly is serverless..?</b-card-text>
       </b-tab>
       <b-tab title="Recent Reads">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
