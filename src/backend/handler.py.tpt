@@ -55,3 +55,12 @@ def readings( event, contexts ):
    response = scanResult( "readings" )
    print( response )
    return wrapResponse( json.dumps( response ), 200 )
+
+def cloud( event, contexts ):
+   '''
+   Implements /cloud
+   Returns list of entities with section name equal to cloud
+   '''
+   response = scanResult( "cloud" )
+   print( response )
+   return wrapResponse( json.dumps( response ), 200 )

@@ -66,9 +66,25 @@
           </b-card-footer>
         </b-card>
       </b-tab>
-      </b-tab>
       <b-tab title="Cloud Articles">
          <b-card-text>Here are some cloud articles bookmarked.</b-card-text>
+         <b-row>
+         <b-card
+           v-for="blob in blobs_cloud"
+           :title="blob.title"
+           :img-src="blob.img_url"
+           style="max-width: 40rem; margin-left: 2rem"
+           img-alt="Image"
+           tag="article"
+           class="mb-2">
+          <b-card-text>
+             {{ blob.content }}
+          </b-card-text>
+          <b-card-footer>
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-footer>
+        </b-card>
+        </b-row>
       </b-tab>
       <b-tab title="Tweets Feed">
          <b-card-text>Here are some videos bookmarked.</b-card-text>
@@ -93,7 +109,8 @@ export default {
       return {
          'blobs_about' : null,
          'blobs_serverless': null,
-         'blobs_readings': null
+         'blobs_readings': null,
+         'blobs_cloud': null
       }
    },
    methods: {
@@ -101,6 +118,7 @@ export default {
          const pathAbout = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
          const pathServerless = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/serverless';
          const pathReadings = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/readings';
+         const pathCloud = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/cloud';
          function compare(blob1, blob2) {
             if (blob1.posted_date < blob2.posted_date) {
                return -1;
@@ -132,6 +150,15 @@ export default {
            .then((res) => {
              var blobs = res.data.Items;
              this.blobs_readings = blobs.sort(compare);
+           })
+           .catch((error) => {
+             // eslint-disable-next-line
+             console.error(error);
+           });
+         axios.get(pathCloud)
+           .then((res) => {
+             var blobs = res.data.Items;
+             this.blobs_cloud = blobs.sort(compare);
            })
            .catch((error) => {
              // eslint-disable-next-line
