@@ -10,8 +10,10 @@
    <b-tabs card>
       <b-tab title="About" active>
          <b-card-text>Introducing myself 👋 </b-card-text>
+         <b-row>
          <b-card
            v-for="blob in blobs_about"
+           style="max-width: 40rem; margin-left: 2rem"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
@@ -25,6 +27,7 @@
               <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
           </b-card-footer>
         </b-card>
+        </b-row>
       </b-tab>
       <b-tab title="Serverless Computing">
          <b-card-text>So what exactly is serverless..?</b-card-text>
