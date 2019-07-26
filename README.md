@@ -1,8 +1,12 @@
 # Personal Website
 
-This is the Git repository for hyunwookshin.com
+This is the Git repository for http://hyunwookshin.com
 
 ## Deployment
+
+### Architecture Diagram
+
+![Diagram](images/architecture.png)
 
 ### AWS CodeDeploy
 
@@ -37,7 +41,7 @@ make backend
 
 ### Backend (Stream)
 
-Amazon Kinesis and kubernetes is used to read and parse incoming tweets.
+TDOD: Amazon Kinesis and kubernetes is used to read and parse incoming tweets.
 
 ### Database
 
@@ -48,7 +52,6 @@ AWS DynamoDB is used to store all post data defined as:
    "title" : <string>,
    "section" : <string>,
    "content" : <string>,
-   "uploaded" : <date>,
    "img_url" : <string>,
    "external_url" : <string>,
    "posted_by" : <string>
@@ -61,4 +64,5 @@ Python boto3 will be used to access the Dynamo DB.
 
 ### Authentication
 
-The authentication and authorization is managed by AWS Cognito.
+
+TODO: The authentication and authorization is managed by AWS Cognito.
