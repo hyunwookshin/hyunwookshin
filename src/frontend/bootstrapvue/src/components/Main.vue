@@ -11,7 +11,7 @@
       <b-tab title="About" active>
          <b-card-text>Introducing myself 👋 </b-card-text>
          <b-card
-           v-for="blob in blobs"
+           v-for="blob in blobs_about"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
@@ -20,12 +20,30 @@
            class="mb-2">
           <b-card-text>
              {{ blob.content }}
-              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
           </b-card-text>
+          <b-card-footer>
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-footer>
         </b-card>
       </b-tab>
       <b-tab title="Serverless Computing">
          <b-card-text>So what exactly is serverless..?</b-card-text>
+         <b-card
+           v-for="blob in blobs_serverless"
+           :title="blob.title"
+           :img-src="blob.img_url"
+           img-alt="Image"
+           img-height="250px"
+           img-top
+           tag="article"
+           class="mb-2">
+          <b-card-text>
+             {{ blob.content }}
+          </b-card-text>
+          <b-card-footer>
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-footer>
+        </b-card>
       </b-tab>
       <b-tab title="Recent Reads">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
@@ -54,15 +72,25 @@ export default {
    name: 'Main',
    data() {
       return {
-         'blobs' : null,
+         'blobs_about' : null,
+         'blobs_serverless': null
       }
    },
    methods: {
        getBlobs() {
-         const path = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
-         axios.get(path)
+         const pathAbout = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
+         const pathServerless = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/serverless';
+         axios.get(pathAbout)
            .then((res) => {
-             this.blobs = res.data.Items;
+             this.blobs_about = res.data.Items;
+           })
+           .catch((error) => {
+             // eslint-disable-next-line
+             console.error(error);
+           });
+         axios.get(pathServerless)
+           .then((res) => {
+             this.blobs_serverless = res.data.Items;
            })
            .catch((error) => {
              // eslint-disable-next-line
