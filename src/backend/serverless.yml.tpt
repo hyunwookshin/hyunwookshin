@@ -34,3 +34,10 @@ functions:
           path: /about
           method: get
           cors: true #allow cross origin access
+  serverless:
+    handler: handler.serverless
+    events:
+      - http:
+          path: /serverless
+          method: get
+          cors: true

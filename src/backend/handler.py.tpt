@@ -18,19 +18,31 @@ def wrapResponse( response, status ):
       "body": response
    }
 
-def about( event, context ):
-   '''
-   Implements /about
-   Returns list of entities with section name equal to about
-   '''
+def scanResult( section ):
    tableName = os.environ[ 'TABLE_NAME' ]
    session = boto3.Session(
       region_name=os.environ[ 'REGION_NAME' ]
    )
    dynamodb_resource = session.resource('dynamodb')
    table = dynamodb_resource.Table( tableName )
-   response = table.scan(
-         FilterExpression=Key('section').eq( "about" )
+   return table.scan(
+         FilterExpression=Key('section').eq( section )
    )
+
+def about( event, context ):
+   '''
+   Implements /about
+   Returns list of entities with section name equal to about
+   '''
+   response = scanResult( "about" )
+   print( response )
+   return wrapResponse( json.dumps( response ), 200 )
+
+def serverless( event, context ):
+   '''
+   Implements /serverless
+   Returns list of entities with section name equal to about
+   '''
+   response = scanResult( "serverless" )
    print( response )
    return wrapResponse( json.dumps( response ), 200 )
