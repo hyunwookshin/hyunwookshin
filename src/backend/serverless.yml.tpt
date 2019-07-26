@@ -33,3 +33,4 @@ functions:
       - http:
           path: /about
           method: get
+          cors: true #allow cross origin access

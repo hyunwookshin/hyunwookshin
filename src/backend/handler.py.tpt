@@ -4,11 +4,15 @@ import os
 
 from boto3.dynamodb.conditions import Key, Attr
 
-def wrap( response, status ):
+def wrapResponse( response, status ):
+   '''
+   Wrap response to match specification for APIGateway APIs
+   '''
    return {
       "isBase64Encoded": False,
       "statusCode": status,
       "headers": {
+         "Access-Control-Allow-Origin": "*",
          "Content-Type": "application/json"
       },
       "body": response
@@ -29,4 +33,4 @@ def about( event, context ):
          FilterExpression=Key('section').eq( "about" )
    )
    print( response )
-   return wrap( json.dumps( response ), 200 )
+   return wrapResponse( json.dumps( response ), 200 )
