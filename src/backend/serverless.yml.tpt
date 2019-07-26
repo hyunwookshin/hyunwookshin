@@ -41,3 +41,10 @@ functions:
           path: /serverless
           method: get
           cors: true
+  readings:
+    handler: handler.readings
+    events:
+      - http:
+          path: /readings
+          method: get
+          cors: true

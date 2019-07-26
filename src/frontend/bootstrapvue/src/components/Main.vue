@@ -47,6 +47,22 @@
       </b-tab>
       <b-tab title="Recent Reads">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
+         <b-card
+           v-for="blob in blobs_readings"
+           :title="blob.title"
+           :img-src="blob.img_url"
+           img-alt="Image"
+           img-left
+           tag="article"
+           class="mb-2">
+          <b-card-text>
+             {{ blob.content }}
+          </b-card-text>
+          <b-card-footer>
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-footer>
+        </b-card>
+      </b-tab>
       </b-tab>
       <b-tab title="Cloud Articles">
          <b-card-text>Here are some cloud articles bookmarked.</b-card-text>
@@ -73,13 +89,15 @@ export default {
    data() {
       return {
          'blobs_about' : null,
-         'blobs_serverless': null
+         'blobs_serverless': null,
+         'blobs_readings': null
       }
    },
    methods: {
        getBlobs() {
          const pathAbout = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
          const pathServerless = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/serverless';
+         const pathReadings = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/readings';
          axios.get(pathAbout)
            .then((res) => {
              this.blobs_about = res.data.Items;
@@ -91,6 +109,14 @@ export default {
          axios.get(pathServerless)
            .then((res) => {
              this.blobs_serverless = res.data.Items;
+           })
+           .catch((error) => {
+             // eslint-disable-next-line
+             console.error(error);
+           });
+         axios.get(pathReadings)
+           .then((res) => {
+             this.blobs_readings= res.data.Items;
            })
            .catch((error) => {
              // eslint-disable-next-line

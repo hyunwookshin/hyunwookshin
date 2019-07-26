@@ -46,3 +46,12 @@ def serverless( event, context ):
    response = scanResult( "serverless" )
    print( response )
    return wrapResponse( json.dumps( response ), 200 )
+
+def readings( event, contexts ):
+   '''
+   Imeplements /readings
+   Returns list of entities with section name equal to readings
+   '''
+   response = scanResult( "readings" )
+   print( response )
+   return wrapResponse( json.dumps( response ), 200 )
