@@ -33,7 +33,7 @@
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
-           img-height="250px"
+           img-height="350px"
            img-top
            tag="article"
            class="mb-2">
