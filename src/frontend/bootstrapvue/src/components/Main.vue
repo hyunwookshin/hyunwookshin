@@ -10,8 +10,21 @@
    <b-tabs card>
       <b-tab title="About me in 100 words" active>
          <b-card-text>Time for me to introduce myself.</b-card-text>
+         <b-card
+           v-for="blob in blobs"
+           :title="blob.title"
+           :img-src="blob.img_url"
+           img-alt="Image"
+           img-top
+           tag="article"
+           class="mb-2">
+          <b-card-text>
+             {{ blob.content }}
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-text>
+        </b-card>
       </b-tab>
-      <b-tab title="Serverless Computing" active>
+      <b-tab title="Serverless Computing">
          <b-card-text>Although intimidating at first, I began really like the serverless idea.</b-card-text>
       </b-tab>
       <b-tab title="Recent Reads">
@@ -36,13 +49,31 @@
 </div>
 </template>
 <script>
-   export default {
-      name: 'Main',
-      data() {
-         return {
-         }
+import axios from 'axios';
+export default {
+   name: 'Main',
+   data() {
+      return {
+         'blobs' : null,
       }
-   }
+   },
+   methods: {
+       getBlobs() {
+         const path = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
+         axios.get(path)
+           .then((res) => {
+             this.blobs = res.data.Items;
+           })
+           .catch((error) => {
+             // eslint-disable-next-line
+             console.error(error);
+           });
+       },
+  },
+  created() {
+       this.getBlobs();
+  },
+}
 </script>
 <style scoped>
 .header, .footer {

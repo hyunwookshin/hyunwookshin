@@ -4,7 +4,7 @@ DIST := $(FRONTEND)/dist
 
 install: setup
 	sudo npm install -g @vue/cli
-	cd $(FRONTEND) && npm i vue bootstrap-vue bootstrap
+	cd $(FRONTEND) && npm i vue bootstrap-vue bootstrap axios
 
 backend: config setup
 	sudo npm install --save serverless-python-requirements
