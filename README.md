@@ -1,6 +1,6 @@
 # Personal Website
 
-This is the Git repository for http://hyunwookshin.com
+This is the Git repository for http://www.hyunwookshin.com
 
 ## Deployment
 
