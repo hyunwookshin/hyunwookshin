@@ -10,12 +10,13 @@
    <b-tabs card>
       <b-tab title="About" active>
          <b-card-text>Introducing myself 👋 </b-card-text>
+         <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
            v-for="blob in blobs_about"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
-           img-top
+           img-bottom
            tag="article"
            class="mb-2">
           <b-card-text>
@@ -107,6 +108,7 @@ export default {
    name: 'Main',
    data() {
       return {
+         'progress': true,
          'blobs_about' : null,
          'blobs_serverless': null,
          'blobs_readings': null,
@@ -132,6 +134,8 @@ export default {
            .then((res) => {
              var blobs = res.data.Items;
              this.blobs_about = blobs.sort(compare);
+             // Since this is the landing tab finish progress bar if done here
+             this.progress = false
            })
            .catch((error) => {
              // eslint-disable-next-line
