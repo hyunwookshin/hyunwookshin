@@ -15,10 +15,11 @@
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
+           border-variant="light"
            img-bottom
            tag="article"
-           class="mb-2">
-          <b-card-text>
+           class="mb-2 text-left">
+          <b-card-text class="content">
              {{ blob.content }}
           </b-card-text>
         </b-card>
@@ -36,7 +37,7 @@
            img-top
            tag="article"
            class="mb-2 text-left">
-          <b-card-text>
+          <b-card-text class="content">
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -58,7 +59,7 @@
            img-top
            tag="article"
            class="mb-2 text-left">
-          <b-card-text>
+          <b-card-text class="content">
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -78,7 +79,7 @@
            img-alt="Image"
            tag="article"
            class="mb-2 text-left">
-          <b-card-text>
+          <b-card-text class="content">
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -193,8 +194,12 @@ export default {
 .title, .githubButton {
    margin: 1em 1em;
    text-align: left;
+   font-family: Montserrat, "Calibri Light", Arial, Helvetica, sans-serif;
 }
 .links {
    text-align: right;
+}
+.content {
+  font-family: "Open Sans", "Calibri Light", Arial, Helvetica, sans-serif;
 }
 </style>
