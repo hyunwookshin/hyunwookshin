@@ -47,12 +47,15 @@
       </b-tab>
       <b-tab title="Recent Reads">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
+         <b-card-group columns>
          <b-card
            v-for="blob in blobs_readings"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
-           img-left
+           img-width="200px"
+           style="max-width: 20rem; margin-left: 1rem"
+           img-top
            tag="article"
            class="mb-2">
           <b-card-text>
@@ -62,6 +65,7 @@
               <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
           </b-card-footer>
         </b-card>
+        </b-card-group>
       </b-tab>
       <b-tab title="Cloud Articles">
          <b-card-text>Here are some cloud articles bookmarked.</b-card-text>
