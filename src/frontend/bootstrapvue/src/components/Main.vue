@@ -24,7 +24,7 @@
           </b-card-text>
         </b-card>
       </b-tab>
-      <b-tab title="Serverless Computing">
+      <b-tab title="Serverless">
          <b-card-text>So what exactly is serverless..?</b-card-text>
          <b-row>
          <b-card
