@@ -1,7 +1,7 @@
 <template>
 <div>
 <b-row class="header">
-   <b-col cols="7" class="title"><h1>Hyunwook Shin</h1></b-col>
+   <b-col cols="7" class="toptitle"><h2>hyunwook shin _</h2></b-col>
    <b-col cols="3" class="links">
       <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
@@ -35,7 +35,7 @@
            img-height="350px"
            img-top
            tag="article"
-           class="mb-2">
+           class="mb-2 text-left">
           <b-card-text>
              {{ blob.content }}
           </b-card-text>
@@ -57,7 +57,7 @@
            style="max-width: 20rem; margin-left: 1rem"
            img-top
            tag="article"
-           class="mb-2">
+           class="mb-2 text-left">
           <b-card-text>
              {{ blob.content }}
           </b-card-text>
@@ -77,7 +77,7 @@
            style="max-width: 40rem; margin-left: 2rem"
            img-alt="Image"
            tag="article"
-           class="mb-2">
+           class="mb-2 text-left">
           <b-card-text>
              {{ blob.content }}
           </b-card-text>
@@ -176,16 +176,22 @@ export default {
 }
 </script>
 <style scoped>
+.toptitle {
+   margin: 1em 1em;
+   text-align: left;
+   font-family: Montserrat, "Calibri Light", Arial, Helvetica, sans-serif;
+}
 .header, .footer {
-   background-color: #39324B;
-   color: white;
+   margin-top: 1em;
+   background-color: white;
+   color: gray;
 }
 .footercInner {
    text-align: center;
    color: white;
 }
 .title, .githubButton {
-   margin: 6px 6px;
+   margin: 1em 1em;
    text-align: left;
 }
 .links {
