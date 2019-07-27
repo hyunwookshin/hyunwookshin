@@ -3,13 +3,12 @@
 <b-row class="header">
    <b-col cols="7" class="title"><h1>Hyunwook Shin</h1></b-col>
    <b-col cols="3" class="links">
-      <b-btn href="https://github.com/hyunwookshin/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
+      <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
 <b-card no-body>
    <b-tabs card>
       <b-tab title="About" active>
-         <b-card-text>Introducing myself 👋 </b-card-text>
          <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
            v-for="blob in blobs_about"
@@ -22,9 +21,6 @@
           <b-card-text>
              {{ blob.content }}
           </b-card-text>
-          <b-card-footer>
-              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
-          </b-card-footer>
         </b-card>
       </b-tab>
       <b-tab title="Serverless Computing">
