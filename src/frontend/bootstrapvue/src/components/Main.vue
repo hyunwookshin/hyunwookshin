@@ -6,8 +6,8 @@
       <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
-<b-card no-body>
-   <b-tabs card>
+<div class="wrapper">
+   <b-tabs content-class="mt-3" justified>
       <b-tab title="About" active>
          <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
@@ -95,7 +95,7 @@
          <b-card-text>Here are some nice food places I have tried</b-card-text>
       </b-tab>
    </b-tabs>
-</b-card>
+</div>
 <b-row class="footer">
    <b-col cols="12" class="footerInner">
       <p>Hyunwook Shin 2019</p>
@@ -201,5 +201,8 @@ export default {
 }
 .content {
   font-family: "Open Sans", "Calibri Light", Arial, Helvetica, sans-serif;
+}
+.wrapper {
+   margin: 1em 1em;
 }
 </style>
