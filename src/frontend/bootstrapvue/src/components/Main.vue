@@ -20,7 +20,7 @@
            class="mb-2 text-left">
           <b-card-text class="content">
              Posted on {{ blob.posted_date }} &#128197;
-             <br>
+             <br><br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -43,7 +43,7 @@
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
-             {{ blob.posted_by }} | {{ blob.posted_date }} &#128197; <br>
+             {{ blob.posted_by }} | {{ blob.posted_date }} &#128197; <br><br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -66,7 +66,7 @@
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
-             {{ blob.posted_by }} | {{ blob.posted_date }} &#128197; <br>
+             {{ blob.posted_by }} | {{ blob.posted_date }} &#128197; <br><br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
