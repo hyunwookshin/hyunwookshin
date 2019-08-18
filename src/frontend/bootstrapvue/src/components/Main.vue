@@ -8,7 +8,7 @@
 </b-row>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
-      <b-tab title="About" active>
+      <b-tab title="About">
          <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
            v-for="blob in blobs_about"
@@ -38,6 +38,7 @@
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
+             {{ blob.posted_by }} | {{ blob.posted_date }} <br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -46,7 +47,7 @@
         </b-card>
         </b-row>
       </b-tab>
-      <b-tab title="Recent Reads">
+      <b-tab title="Recent Reading">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
          <b-card-group columns>
          <b-card
@@ -60,6 +61,7 @@
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
+             {{ blob.posted_by }} | {{ blob.posted_date }} <br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
@@ -68,8 +70,7 @@
         </b-card>
         </b-card-group>
       </b-tab>
-      <b-tab title="Cloud Articles">
-         <b-card-text>Here are some cloud articles bookmarked.</b-card-text>
+      <b-tab title="Cloud Articles" active>
          <b-row>
          <b-card
            v-for="blob in blobs_cloud"
@@ -80,6 +81,8 @@
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
+             Posted on {{ blob.posted_date }}
+             <br>
              {{ blob.content }}
           </b-card-text>
           <b-card-footer>
