@@ -8,21 +8,26 @@
 </b-row>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
-      <b-tab title="About">
-         <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
+      <b-tab title="Cloud Posts" active>
+         <b-row>
          <b-card
-           v-for="blob in blobs_about"
+           v-for="blob in blobs_cloud"
            :title="blob.title"
            :img-src="blob.img_url"
+           style="max-width: 40rem; margin-left: 2rem"
            img-alt="Image"
-           border-variant="light"
-           img-bottom
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
+             Posted on {{ blob.posted_date }}
+             <br>
              {{ blob.content }}
           </b-card-text>
+          <b-card-footer>
+              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
+          </b-card-footer>
         </b-card>
+        </b-row>
       </b-tab>
       <b-tab title="Serverless">
          <b-card-text>So what exactly is serverless..?</b-card-text>
@@ -47,7 +52,7 @@
         </b-card>
         </b-row>
       </b-tab>
-      <b-tab title="Recent Reading">
+      <b-tab title="Recent Readings">
          <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
          <b-card-group columns>
          <b-card
@@ -70,32 +75,21 @@
         </b-card>
         </b-card-group>
       </b-tab>
-      <b-tab title="Cloud Articles" active>
-         <b-row>
+      <b-tab title="About">
+         <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
-           v-for="blob in blobs_cloud"
+           v-for="blob in blobs_about"
            :title="blob.title"
            :img-src="blob.img_url"
-           style="max-width: 40rem; margin-left: 2rem"
            img-alt="Image"
+           border-variant="light"
+           img-bottom
            tag="article"
            class="mb-2 text-left">
           <b-card-text class="content">
-             Posted on {{ blob.posted_date }}
-             <br>
              {{ blob.content }}
           </b-card-text>
-          <b-card-footer>
-              <b-link :href="blob.external_url">{{blob.external_url}}</b-link>
-          </b-card-footer>
         </b-card>
-        </b-row>
-      </b-tab>
-      <b-tab title="Tweets Feed">
-         <b-card-text>Here are some videos bookmarked.</b-card-text>
-      </b-tab>
-      <b-tab title="Food Places">
-         <b-card-text>Here are some nice food places I have tried</b-card-text>
       </b-tab>
    </b-tabs>
 </div>
