@@ -179,14 +179,16 @@ export default {
    text-align: left;
    font-family: Montserrat, "Calibri Light", Arial, Helvetica, sans-serif;
 }
-.header, .footer {
+.header {
    margin-top: 1em;
    background-color: white;
    color: gray;
 }
-.footercInner {
-   text-align: center;
-   color: white;
+.footer {
+   padding-top: 4em;
+   padding-bottom: 4em;
+   background-color: black;
+   color: gray;
 }
 .title, .githubButton {
    margin: 1em 1em;
