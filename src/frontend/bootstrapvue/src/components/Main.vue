@@ -121,10 +121,10 @@ export default {
          const pathCloud = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/cloud';
          function compare(blob1, blob2) {
             if (blob1.posted_date < blob2.posted_date) {
-               return -1;
+               return 1;
             }
             if (blob1.posted_date > blob2.posted_date) {
-               return 1;
+               return -1;
             }
             return 0;
          }
