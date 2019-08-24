@@ -21,7 +21,7 @@
             time to time and old posts may be removed in the future. 
             Thanks again for visiting my personal web page!
             (Some contents that are not specifically related to cloud computing are still
-            added here, because I still find them interesting.
+            added here, because I still find them interesting).
          </b-card-text>
          <b-row>
          <b-card
