@@ -231,7 +231,9 @@ export default {
   font-family: "Open Sans", "Calibri Light", Arial, Helvetica, sans-serif;
 }
 .wrapper {
-   margin: 1em 1em;
+   margin-top: 1em;
+   margin-left: 12%;
+   margin-right: 12%;
 }
 #centered {
    position: absolute;
