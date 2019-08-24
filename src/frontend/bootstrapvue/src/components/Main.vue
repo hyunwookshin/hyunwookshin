@@ -31,7 +31,7 @@
             As a software engineer working with cloud technologies, I decided to include some cloud-related articles that I found intruiging
             under the first tab. The contents generally get updated from time to time and old posts may be removed in the future. 
          </b-card-text>
-         <b-row>
+         <b-row align-h="center">
          <b-card
            v-for="blob in blobs_cloud"
            :title="blob.title"
@@ -58,7 +58,7 @@
             careful design regarding scalability, security, resources and networking since data is still being passed around between
             cloud-managed servers.
          </b-card-text>
-         <b-row>
+         <b-row align-h="center">
          <b-card
            v-for="blob in blobs_serverless"
            :title="blob.title"
