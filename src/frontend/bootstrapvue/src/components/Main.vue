@@ -6,6 +6,17 @@
       <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
+<div id="centered">
+   <b-img
+      thumbnail
+      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile.png"
+      id="profile"
+      v-bind="mainProps"
+      rounded="circle"
+      style="width: 8rem; height: 8rem"
+      alt="Circle image">
+   </b-img>
+</div>
 <b-img
    src="https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png"
    fluid alt="Responsive image"
@@ -224,5 +235,16 @@ export default {
 }
 .wrapper {
    margin: 1em 1em;
+}
+#centered {
+   position: absolute;
+   top: 9rem;
+   left: 50%;
+   z-index: 3;
+}
+#profile {
+   position: relative;
+   left: -4rem;
+   z-index: 3;
 }
 </style>
