@@ -27,12 +27,9 @@
       <b-tab title="Cloud Posts" active>
          <b-card-text class="text-left section" >
             <h3>Recent Cloud Posts</h3>
-            As a software engineer working with cloud technologies, I thought it was a good idea to place cloud articles
-            front and center. Here are some cloud articles that I have found intriguing below. The contents generally get updated from
-            time to time and old posts may be removed in the future. 
-            Thanks again for visiting my personal web page!
-            (Some contents that are not specifically related to cloud computing are still
-            added here, because I still find them interesting).
+            Hello, thanks for visiting my personal blog site. I regularly post random topics related to my profession, industry trends, and my hobbies here.
+            As a software engineer working with cloud technologies, I decided to include some cloud-related articles that I found intruiging
+            under the first tab. The contents generally get updated from time to time and old posts may be removed in the future. 
          </b-card-text>
          <b-row>
          <b-card
