@@ -6,9 +6,23 @@
       <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
+<b-img
+   src="https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png"
+   fluid alt="Responsive image"
+   style="width: 100%; max-height: 20rem">
+</b-img>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
       <b-tab title="Cloud Posts" active>
+         <b-card-text class="text-left section" >
+            <h3>Recent Cloud Posts</h3>
+            As a software engineer working with cloud technologies, I thought it was a good idea to place cloud articles
+            front and center. Here are some cloud articles that I have found intriguing below. The contents generally get updated from
+            time to time and old posts may be removed in the future. 
+            Thanks again for visiting my personal web page!
+            (Some contents that are not specifically related to cloud computing are still
+            added here, because I still find them interesting.
+         </b-card-text>
          <b-row>
          <b-card
            v-for="blob in blobs_cloud"
@@ -30,7 +44,12 @@
         </b-row>
       </b-tab>
       <b-tab title="Serverless">
-         <b-card-text>So what exactly is serverless..?</b-card-text>
+         <b-card-text class="text-left section" >
+            <h3>Serverless</h3>
+            Serverless applications still need to run on some servers somewhere. In fact, serverless architecture still involve 
+            careful design regarding scalability, security, resources and networking since data is still being passed around between
+            cloud-managed servers.
+         </b-card-text>
          <b-row>
          <b-card
            v-for="blob in blobs_serverless"
@@ -53,7 +72,7 @@
         </b-row>
       </b-tab>
       <b-tab title="Recent Readings">
-         <b-card-text>Here are some books and papers that I thought were worthwhile.</b-card-text>
+         <b-card-text class="text-left section" ><h3>Recent Reading Favorites</h3></b-card-text>
          <b-card-group columns>
          <b-card
            v-for="blob in blobs_readings"
@@ -76,7 +95,6 @@
         </b-card-group>
       </b-tab>
       <b-tab title="About">
-         <b-spinner v-if="progress" variant="primary" label="Spinning"></b-spinner>
          <b-card
            v-for="blob in blobs_about"
            :title="blob.title"
@@ -194,6 +212,9 @@ export default {
    margin: 1em 1em;
    text-align: left;
    font-family: Montserrat, "Calibri Light", Arial, Helvetica, sans-serif;
+}
+.section{
+   margin-top: 2rem;
 }
 .links {
    text-align: right;
