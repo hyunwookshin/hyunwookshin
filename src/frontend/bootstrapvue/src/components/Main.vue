@@ -202,6 +202,7 @@ export default {
 <style scoped>
 .toptitle {
    margin: 1em 1em;
+   margin-left: 12%;
    text-align: left;
    font-family: Montserrat, "Calibri Light", Arial, Helvetica, sans-serif;
 }
