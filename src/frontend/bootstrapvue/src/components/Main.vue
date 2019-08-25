@@ -54,9 +54,9 @@
       <b-tab title="Serverless">
          <b-card-text class="text-left section" >
             <h3>Serverless</h3>
-            Serverless applications still need to run on some servers somewhere. In fact, serverless architecture still involve 
-            careful design regarding scalability, security, resources and networking since data is still being passed around between
-            cloud-managed servers.
+            Serverless applications still need to run on servers somewhere in the cloud environments. Accordingly, serverless architecture is not immune to
+            standard problems such as scale issues, security vulnerabilities, compatibility and networking issues. But overall, serverless architecture
+            separates infrastructure/platform from the application logic, and that separation helps us build modular and maintainabile software.
          </b-card-text>
          <b-row align-h="center">
          <b-card
