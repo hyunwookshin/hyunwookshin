@@ -34,6 +34,7 @@
          <b-row align-h="center">
          <b-card
            v-for="blob in blobs_cloud"
+           v-bind:key="blob"
            :title="blob.title"
            :img-src="blob.img_url"
            style="max-width: 40rem; margin-left: 2rem"
@@ -61,6 +62,7 @@
          <b-row align-h="center">
          <b-card
            v-for="blob in blobs_serverless"
+           v-bind:key="blob"
            :title="blob.title"
            :img-src="blob.img_url"
            style="max-width: 40rem; margin-left: 2rem"
@@ -84,6 +86,7 @@
          <b-card-group columns>
          <b-card
            v-for="blob in blobs_readings"
+           v-bind:key="blob"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
@@ -105,6 +108,7 @@
       <b-tab title="About">
          <b-card
            v-for="blob in blobs_about"
+           v-bind:key="blob"
            :title="blob.title"
            :img-src="blob.img_url"
            img-alt="Image"
