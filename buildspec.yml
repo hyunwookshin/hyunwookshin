@@ -8,7 +8,7 @@ phases:
   build:
     commands:
        - cd src/frontend/bootstrapvue
-       - npm i vue bootstrap-vue bootstrap axios
+       - npm i vue bootstrap-vue bootstrap axios vue-template-compiler
        - npm run build
   post_build:
     commands:
