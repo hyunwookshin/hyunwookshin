@@ -9,7 +9,7 @@
 <div id="centered">
    <b-img
       thumbnail
-      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile.png"
+      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile2.jpeg"
       id="profile"
       v-bind="mainProps"
       rounded="circle"
