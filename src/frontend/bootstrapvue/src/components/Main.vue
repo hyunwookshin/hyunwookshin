@@ -145,10 +145,10 @@ export default {
    },
    methods: {
        getBlobs() {
-         const pathAbout = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/about';
-         const pathServerless = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/serverless';
-         const pathReadings = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/readings';
-         const pathCloud = 'https://x00nzhadqi.execute-api.us-east-2.amazonaws.com/stage/cloud';
+         const pathAbout = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/about';
+         const pathServerless = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/serverless';
+         const pathReadings = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/readings';
+         const pathCloud = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/cloud';
          function compare(blob1, blob2) {
             if (blob1.posted_date < blob2.posted_date) {
                return 1;
