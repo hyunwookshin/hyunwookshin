@@ -9,7 +9,7 @@
 <div id="centered">
    <b-img
       thumbnail
-      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile2.jpeg"
+      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile3.jpg"
       id="profile"
       v-bind="mainProps"
       rounded="circle"
@@ -20,7 +20,7 @@
 <b-img
    src="https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png"
    fluid alt="Responsive image"
-   style="width: 100%; max-height: 20rem">
+   style="width: 100%; max-height: 15rem">
 </b-img>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
