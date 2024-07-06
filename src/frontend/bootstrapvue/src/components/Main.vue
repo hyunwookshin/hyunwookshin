@@ -27,9 +27,9 @@
       <b-tab title="Cloud Posts" active>
          <b-card-text class="text-left section" >
             <h3>Recent Cloud Posts</h3>
-            Hello, thanks for visiting my personal blog site. I regularly post random topics related to my profession, industry trends, and my hobbies here.
-            As a software engineer working with cloud technologies, I decided to include some cloud-related articles that I found intruiging
-            under the first tab. The contents generally get updated from time to time and old posts may be removed in the future. 
+            Hello and welcome to my personal blog. Here, I regularly share a variety of topics related to my profession, industry trends, and my hobbies. As a software engineer specializing in cloud technologies, you'll find intriguing articles about the cloud under the first tab. I update the content periodically, so check back often for new insights and discussions.
+
+            You can also check out my Medium page <a href="https://medium.com/@shincontact">here</a>.
          </b-card-text>
          <b-row align-h="center">
          <b-card
