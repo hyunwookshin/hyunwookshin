@@ -6,21 +6,10 @@
       <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
-<div id="centered">
-   <b-img
-      thumbnail
-      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile3.jpg"
-      id="profile"
-      v-bind="mainProps"
-      rounded="circle"
-      style="width: 8rem; height: 8rem"
-      alt="Circle image">
-   </b-img>
-</div>
 <b-img
    src="https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png"
    fluid alt="Responsive image"
-   style="width: 100%; max-height: 15rem">
+   style="width: 100%; max-height: 10rem">
 </b-img>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
@@ -31,6 +20,17 @@
 
             You can also check out my Medium page <a href="https://medium.com/@shincontact">here</a>.
          </b-card-text>
+         <div id="centered">
+            <b-img
+               thumbnail
+               src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile3.jpg"
+               id="profile"
+               v-bind="mainProps"
+               rounded="circle"
+               style="width: 8rem; height: 8rem"
+               alt="Circle image">
+            </b-img>
+         </div>
          <b-row align-h="center">
          <b-card
            v-for="blob in blobs_cloud"
