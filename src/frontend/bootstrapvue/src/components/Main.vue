@@ -13,9 +13,9 @@
 </b-img>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
-      <b-tab title="Cloud Posts" active>
+      <b-tab title="Cloud and AI Posts" active>
          <b-card-text class="text-left section" >
-            <h3>Recent Cloud Posts</h3>
+            <h3>Recent Cloud and AI Posts</h3>
             Hello and welcome to my personal blog. Here, I regularly share a variety of topics related to my profession, industry trends, and my hobbies. As a software engineer specializing in cloud technologies, you'll find intriguing articles about the cloud under the first tab. I update the content periodically, so check back often for new insights and discussions.
 
             You can also check out my Medium page <a href="https://medium.com/@shincontact">here</a>.
