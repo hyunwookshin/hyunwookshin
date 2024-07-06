@@ -20,17 +20,6 @@
 
             You can also check out my Medium page <a href="https://medium.com/@shincontact">here</a>.
          </b-card-text>
-         <div id="centered">
-            <b-img
-               thumbnail
-               src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile3.jpg"
-               id="profile"
-               v-bind="mainProps"
-               rounded="circle"
-               style="width: 8rem; height: 8rem"
-               alt="Circle image">
-            </b-img>
-         </div>
          <b-row align-h="center">
          <b-card
            v-for="blob in blobs_cloud"
@@ -106,6 +95,17 @@
         </b-card-group>
       </b-tab>
       <b-tab title="About">
+         <div id="centered">
+            <b-img
+               thumbnail
+               src="https://hyunwook.s3.us-east-2.amazonaws.com/images/profile3.jpg"
+               id="profile"
+               v-bind="mainProps"
+               rounded="circle"
+               style="width: 8rem; height: 8rem"
+               alt="Circle image">
+            </b-img>
+         </div>
          <b-card
            v-for="blob in blobs_about"
            v-bind:key="blob"
