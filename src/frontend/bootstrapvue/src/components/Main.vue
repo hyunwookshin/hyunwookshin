@@ -1,7 +1,7 @@
 <template>
 <div>
 <b-row class="header">
-   <b-col cols="7" class="toptitle"><h2>hyunwook shin _</h2></b-col>
+   <b-col cols="7" class="toptitle"><h2>hyunwook shin</h2></b-col>
    <b-col cols="3" class="links">
       <b-btn href="https://github.com/hyunwookshin" class="githubButton customPrimary" variant="primary">GitHub</b-btn>
    </b-col>
