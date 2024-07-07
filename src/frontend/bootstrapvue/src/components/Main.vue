@@ -3,7 +3,7 @@
 <b-row class="header">
    <b-col cols="7" class="toptitle"><h2>hyunwook shin _</h2></b-col>
    <b-col cols="3" class="links">
-      <b-btn href="https://github.com/hyunwookshin" class="githubButton" variant="primary">GitHub</b-btn>
+      <b-btn href="https://github.com/hyunwookshin" class="githubButton customPrimary" variant="primary">GitHub</b-btn>
    </b-col>
 </b-row>
 <b-img
@@ -13,7 +13,7 @@
 </b-img>
 <div class="wrapper">
    <b-tabs content-class="mt-3" justified>
-      <b-tab title="Cloud and AI Posts" active>
+      <b-tab title="Cloud and AI Posts" class="customTab" active>
          <b-card-text class="text-left section" >
             <h3>Recent Cloud and AI Posts</h3>
             Hello and welcome to my personal blog. Here, I regularly share a variety of topics related to my profession, industry trends, and my hobbies. As a software engineer specializing in cloud technologies, you'll find intriguing articles about the cloud under the first tab. I update the content periodically, so check back often for new insights and discussions.
@@ -41,7 +41,7 @@
         </b-card>
         </b-row>
       </b-tab>
-      <b-tab title="Serverless">
+      <b-tab title="Serverless" class="customTab">
          <b-card-text class="text-left section" >
             <h3>Serverless</h3>
             Serverless applications still need to run on servers somewhere in the cloud environments. Accordingly, serverless architecture is not immune to
@@ -70,7 +70,7 @@
         </b-card>
         </b-row>
       </b-tab>
-      <b-tab title="Recent Readings">
+      <b-tab title="Recent Readings" class="customTab">
          <b-card-text class="text-left section" ><h3>Recent Reading Favorites</h3></b-card-text>
          <b-card-group columns>
          <b-card
@@ -94,7 +94,7 @@
         </b-card>
         </b-card-group>
       </b-tab>
-      <b-tab title="About">
+      <b-tab title="About" class="customTab">
          <div id="centered">
             <b-img
                thumbnail
@@ -234,6 +234,16 @@ export default {
 }
 .content {
   font-family: "Open Sans", "Calibri Light", Arial, Helvetica, sans-serif;
+}
+.customPrimary {
+  background-color: black !important;
+  border-color: black !important;
+}
+.customTab .nav-link.active {
+     color: black !important;
+}
+.customTab .nav-link {
+     color: black !important;
 }
 .wrapper {
    margin-top: 1em;
