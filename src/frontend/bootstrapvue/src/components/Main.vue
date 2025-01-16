@@ -4,6 +4,7 @@
    <b-col cols="7" class="toptitle"><h2>hyunwook shin</h2></b-col>
    <b-col cols="3" class="links">
       <b-btn href="https://github.com/hyunwookshin" class="githubButton customPrimary" variant="primary">GitHub</b-btn>
+      <b-btn href="https://www.linkedin.com/in/hwshin/" class="githubButton customPrimary" variant="primary">LinkedIn</b-btn>
    </b-col>
 </b-row>
 <b-img
