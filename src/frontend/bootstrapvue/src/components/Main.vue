@@ -126,7 +126,7 @@
 </div>
 <b-row class="footer">
    <b-col cols="12" class="footerInner">
-      <p>Hyunwook Shin 2025</p>
+      <p>Hyunwook Shin 2026</p>
    </b-col>
 </b-row>
 </div>
