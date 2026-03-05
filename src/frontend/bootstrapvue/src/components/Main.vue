@@ -240,9 +240,9 @@ export default {
   justify-content: space-between;
 }
 .app-bar-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', "Calibri Light", Arial, sans-serif;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.01em;
   color: var(--md-on-surface);
 }
