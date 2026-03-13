@@ -173,63 +173,57 @@ export default {
       onScroll() {
          this.scrollY = window.scrollY;
       },
-       getBlobs() {
-         const pathAbout = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/about';
-         const pathServerless = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/serverless';
-         const pathReadings = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/readings';
-         const pathCloud = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/cloud';
-         function compare(blob1, blob2) {
-            if (blob1.posted_date < blob2.posted_date) {
-               return 1;
-            }
-            if (blob1.posted_date > blob2.posted_date) {
-               return -1;
-            }
-            return 0;
+      compare(a, b) {
+         return a.posted_date < b.posted_date ? 1 : a.posted_date > b.posted_date ? -1 : 0;
+      },
+      loadCache() {
+         try {
+            const raw = localStorage.getItem('hshin_data');
+            if (!raw) return false;
+            const { data } = JSON.parse(raw);
+            this.blobs_about = data.about;
+            this.blobs_serverless = data.serverless;
+            this.blobs_readings = data.readings;
+            this.blobs_cloud = data.cloud;
+            this.progress = false;
+            return true;
+         } catch (e) {
+            return false;
          }
-         axios.get(pathAbout)
-           .then((res) => {
-             var blobs = res.data.Items;
-             this.blobs_about = blobs.sort(compare);
-             // Since this is the landing tab finish progress bar if done here
-             this.progress = false
-           })
-           .catch((error) => {
-             // eslint-disable-next-line
-             console.error(error);
-           });
-         axios.get(pathServerless)
-           .then((res) => {
-             var blobs = res.data.Items;
-             this.blobs_serverless = blobs.sort(compare);
-           })
-           .catch((error) => {
-             // eslint-disable-next-line
-             console.error(error);
-           });
-         axios.get(pathReadings)
-           .then((res) => {
-             var blobs = res.data.Items;
-             this.blobs_readings = blobs.sort(compare);
-           })
-           .catch((error) => {
-             // eslint-disable-next-line
-             console.error(error);
-           });
-         axios.get(pathCloud)
-           .then((res) => {
-             var blobs = res.data.Items;
-             this.blobs_cloud = blobs.sort(compare);
-           })
-           .catch((error) => {
-             // eslint-disable-next-line
-             console.error(error);
-           });
-       },
-  },
-  created() {
-       this.getBlobs();
-  },
+      },
+      async getBlobs() {
+         const base = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage';
+         try {
+            const [about, serverless, readings, cloud] = await Promise.all([
+               axios.get(`${base}/about`),
+               axios.get(`${base}/serverless`),
+               axios.get(`${base}/readings`),
+               axios.get(`${base}/cloud`),
+            ]);
+            this.blobs_about      = about.data.Items.sort(this.compare);
+            this.blobs_serverless = serverless.data.Items.sort(this.compare);
+            this.blobs_readings   = readings.data.Items.sort(this.compare);
+            this.blobs_cloud      = cloud.data.Items.sort(this.compare);
+            this.progress = false;
+            localStorage.setItem('hshin_data', JSON.stringify({
+               data: {
+                  about: this.blobs_about,
+                  serverless: this.blobs_serverless,
+                  readings: this.blobs_readings,
+                  cloud: this.blobs_cloud,
+               },
+            }));
+         } catch (error) {
+            // eslint-disable-next-line
+            console.error(error);
+            this.progress = false;
+         }
+      },
+   },
+   created() {
+      this.loadCache();  // show cached data immediately if available
+      this.getBlobs();   // always fetch fresh in background
+   },
 }
 </script>
 <style scoped>
