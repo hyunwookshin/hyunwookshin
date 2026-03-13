@@ -31,6 +31,7 @@
             <br><a class="md-link" href="https://medium.com/@shincontact">Read on Medium</a>
           </p>
         </div>
+        <div v-if="!blobs_cloud" class="loading-state">Loading posts…</div>
         <div class="cards-grid">
           <b-card
             v-for="blob in blobs_cloud"
@@ -59,6 +60,7 @@
             separates infrastructure from application logic, helping us build modular and maintainable software.
           </p>
         </div>
+        <div v-if="!blobs_serverless" class="loading-state">Loading posts…</div>
         <div class="cards-grid">
           <b-card
             v-for="blob in blobs_serverless"
@@ -83,6 +85,7 @@
         <div class="section-intro">
           <h2 class="section-heading">Recent Reading Favorites</h2>
         </div>
+        <div v-if="!blobs_readings" class="loading-state">Loading posts…</div>
         <div class="cards-grid cards-grid--sm">
           <b-card
             v-for="blob in blobs_readings"
@@ -191,33 +194,37 @@ export default {
             return false;
          }
       },
-      async getBlobs() {
+      getBlobs() {
          const base = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage';
-         try {
-            const [about, serverless, readings, cloud] = await Promise.all([
-               axios.get(`${base}/about`),
-               axios.get(`${base}/serverless`),
-               axios.get(`${base}/readings`),
-               axios.get(`${base}/cloud`),
-            ]);
-            this.blobs_about      = about.data.Items.sort(this.compare);
-            this.blobs_serverless = serverless.data.Items.sort(this.compare);
-            this.blobs_readings   = readings.data.Items.sort(this.compare);
-            this.blobs_cloud      = cloud.data.Items.sort(this.compare);
+         const saveCache = () => {
+            if (this.blobs_about && this.blobs_serverless && this.blobs_readings && this.blobs_cloud) {
+               localStorage.setItem('hshin_data', JSON.stringify({
+                  data: {
+                     about: this.blobs_about,
+                     serverless: this.blobs_serverless,
+                     readings: this.blobs_readings,
+                     cloud: this.blobs_cloud,
+                  },
+               }));
+            }
+         };
+         axios.get(`${base}/about`).then(res => {
+            this.blobs_about = res.data.Items.sort(this.compare);
             this.progress = false;
-            localStorage.setItem('hshin_data', JSON.stringify({
-               data: {
-                  about: this.blobs_about,
-                  serverless: this.blobs_serverless,
-                  readings: this.blobs_readings,
-                  cloud: this.blobs_cloud,
-               },
-            }));
-         } catch (error) {
-            // eslint-disable-next-line
-            console.error(error);
-            this.progress = false;
-         }
+            saveCache();
+         }).catch(e => console.error(e)); // eslint-disable-line
+         axios.get(`${base}/serverless`).then(res => {
+            this.blobs_serverless = res.data.Items.sort(this.compare);
+            saveCache();
+         }).catch(e => console.error(e)); // eslint-disable-line
+         axios.get(`${base}/readings`).then(res => {
+            this.blobs_readings = res.data.Items.sort(this.compare);
+            saveCache();
+         }).catch(e => console.error(e)); // eslint-disable-line
+         axios.get(`${base}/cloud`).then(res => {
+            this.blobs_cloud = res.data.Items.sort(this.compare);
+            saveCache();
+         }).catch(e => console.error(e)); // eslint-disable-line
       },
    },
    created() {
@@ -386,6 +393,13 @@ export default {
 </style>
 
 <style scoped>
+/* ── Loading state ───────────────────────────────────── */
+.loading-state {
+  color: var(--md-on-surface-variant);
+  font-size: 0.9rem;
+  padding: 24px 0;
+}
+
 /* ── Section intro ──────────────────────────────────── */
 .section-intro {
   margin: 8px 0 24px;
