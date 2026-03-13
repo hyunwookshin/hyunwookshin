@@ -36,10 +36,9 @@
             v-for="blob in blobs_cloud"
             v-bind:key="blob"
             :title="blob.title"
-            :img-src="blob.img_url"
-            img-alt="Image"
             tag="article"
             class="md-card">
+            <b-img-lazy slot="img" :src="blob.img_url" alt="Image" class="card-img-top" />
             <b-card-text class="content">
               <span class="meta">Posted {{ blob.posted_date }}</span>
               <br><br>
@@ -65,11 +64,9 @@
             v-for="blob in blobs_serverless"
             v-bind:key="blob"
             :title="blob.title"
-            :img-src="blob.img_url"
-            img-alt="Image"
-            img-top
             tag="article"
             class="md-card">
+            <b-img-lazy slot="img" :src="blob.img_url" alt="Image" class="card-img-top" />
             <b-card-text class="content">
               <span class="meta">{{ blob.posted_by }} · {{ blob.posted_date }}</span>
               <br><br>
@@ -91,11 +88,9 @@
             v-for="blob in blobs_readings"
             v-bind:key="blob"
             :title="blob.title"
-            :img-src="blob.img_url"
-            img-alt="Image"
-            img-top
             tag="article"
             class="md-card">
+            <b-img-lazy slot="img" :src="blob.img_url" alt="Image" class="card-img-top" />
             <b-card-text class="content">
               <span class="meta">{{ blob.posted_by }} · {{ blob.posted_date }}</span>
               <br><br>
