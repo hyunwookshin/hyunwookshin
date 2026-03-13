@@ -1,8 +1,14 @@
 <template>
 <div class="page-root">
 
-  <!-- Top App Bar -->
-  <header class="app-bar">
+  <!-- Spacer so content sits below the fixed hero header -->
+  <div class="hero-spacer" :style="{ height: heroHeaderHeight + 'px' }"></div>
+
+  <!-- Hero Header: fixed, shrinks and darkens on scroll -->
+  <div class="hero-header" :style="{ height: heroHeaderHeight + 'px' }">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-overlay" :style="{ opacity: heroOverlayOpacity }"></div>
     <div class="app-bar-inner">
       <span class="app-bar-title">hyunwook shin</span>
       <div class="app-bar-actions">
@@ -10,15 +16,6 @@
         <b-btn href="https://www.linkedin.com/in/hwshin/" class="tonal-btn" variant="primary">LinkedIn</b-btn>
       </div>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <div class="hero-container">
-    <b-img
-      src="https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png"
-      fluid alt="Hero image"
-      class="hero-img">
-    </b-img>
   </div>
 
   <!-- Main content -->
@@ -151,10 +148,36 @@ export default {
          'blobs_about' : null,
          'blobs_serverless': null,
          'blobs_readings': null,
-         'blobs_cloud': null
+         'blobs_cloud': null,
+         'scrollY': 0,
+         'heroExpandedHeight': 280,
+         'heroCollapsedHeight': 56,
       }
    },
+   computed: {
+      heroProgress() {
+         const range = this.heroExpandedHeight - this.heroCollapsedHeight;
+         return Math.min(1, Math.max(0, this.scrollY / range));
+      },
+      heroHeaderHeight() {
+         const range = this.heroExpandedHeight - this.heroCollapsedHeight;
+         return this.heroExpandedHeight - range * this.heroProgress;
+      },
+      heroOverlayOpacity() {
+         return this.heroProgress * 0.88;
+      },
+   },
+   mounted() {
+      this.scrollY = window.scrollY;
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+   },
+   beforeDestroy() {
+      window.removeEventListener('scroll', this.onScroll);
+   },
    methods: {
+      onScroll() {
+         this.scrollY = window.scrollY;
+      },
        getBlobs() {
          const pathAbout = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/about';
          const pathServerless = 'https://spflqnjnzf.execute-api.us-east-2.amazonaws.com/stage/serverless';
@@ -223,18 +246,41 @@ export default {
   background-color: var(--md-surface-container-low);
 }
 
-/* ── Top App Bar ────────────────────────────────────── */
-.app-bar {
-  position: sticky;
+/* ── Hero Header ────────────────────────────────────── */
+.hero-header {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background-color: var(--md-surface);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://hyunwook.s3.us-east-2.amazonaws.com/images/servertop.png');
+  background-size: cover;
+  background-position: center;
+}
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.0) 100%);
+  pointer-events: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
 }
 .app-bar-inner {
+  position: relative;
+  z-index: 1;
+  height: 56px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -244,11 +290,16 @@ export default {
   font-size: 1.4rem;
   font-weight: 300;
   letter-spacing: 0.01em;
-  color: var(--md-on-surface);
+  color: #ffffff;
 }
 .app-bar-actions {
   display: flex;
   gap: 10px;
+}
+
+/* ── Hero spacer ────────────────────────────────────── */
+.hero-spacer {
+  flex-shrink: 0;
 }
 
 /* ── Tonal Buttons ──────────────────────────────────── */
@@ -269,19 +320,6 @@ export default {
 .tonal-btn.btn-primary:hover {
   background-color: #DDD6FF !important;
   box-shadow: var(--md-elev-1) !important;
-}
-
-/* ── Hero ───────────────────────────────────────────── */
-.hero-container {
-  width: 100%;
-  overflow: hidden;
-  max-height: 200px;
-}
-.hero-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
 }
 
 /* ── Content wrapper ────────────────────────────────── */
@@ -464,7 +502,7 @@ export default {
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
   .app-bar-inner {
-    padding: 12px 16px;
+    padding: 0 16px;
   }
   .app-bar-title {
     font-size: 1.1rem;
